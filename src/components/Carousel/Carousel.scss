@@ -1,0 +1,238 @@
+.slider__master-view {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider__cards {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 46px;
+    height: 100%;
+    overflow-x: scroll;
+
+    img {
+        width: 50vw;
+        object-fit: contain;
+        border-radius: 16px;
+
+        @media screen and (min-width: 768px) {
+            width: 30vw;
+            border-radius: 24px;
+        }
+    }
+
+    li:last-child {
+        padding-right: 46px;
+    }
+
+    li:first-child {
+        padding-left: 46px;
+    }
+}
+
+.slider__detailed-view {
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-primary);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.slider__inner-content {
+    height: 100%;
+    padding: 32px 16px;
+}
+
+.slider__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.slider__description {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--color-secondary);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+        display: flex;
+        -webkit-line-clamp: none;
+    }
+}
+
+.slider__title {
+    font-size: 20px;
+    margin: 0;
+    color: var(--color-tertiary);
+
+    @media screen and (min-width: 576px) {
+        font-size: 24px;
+    }
+
+    @media screen and (min-width: 992px) {
+        font-size: 30px;
+    }
+}
+
+.slider__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 24px;
+
+    @media screen and (min-width: 768px) {
+        width: 32%;
+    }
+}
+
+.slider__btn-wrapper {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__btn-close {
+    position: absolute;
+    right: 16px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+
+    @media screen and (min-width: 768px) {
+        right: 124px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: var(--color-tertiary);
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.slider__btn-switch {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    border-radius: 50%;
+
+    @media screen and (min-width: 576px) {
+        height: 40px;
+        width: 40px;
+    }
+
+    &::before {
+        content: "";
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        border-right: 2px solid;
+        border-bottom: 2px solid;
+        border-top: unset;
+        border-left: unset;
+        margin-inline-end: 0.2rem;
+        transform: rotate(-45deg);
+        top: 10px;
+        left: 5px;
+
+        @media screen and (min-width: 576px) {
+            top: 12px;
+            left: 8px;
+        }
+    }
+
+    &--dark {
+        background-color: var(--color-primary);
+        transform: rotate(180deg);
+
+        &::before {
+            border-color: var(--color-secondary);
+        }
+    }
+
+    &--light {
+        background-color: var(--color-tertiary);
+
+        &::before {
+            border-color: var(--color-primary);
+        }
+    }
+}
+
+.slider__btn-refresh {
+    color: var(--color-primary);
+    background: var(--main-linear, linear-gradient(180deg, #9B7EFA 0%, #7E5AE1 100%));
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 24px;
+    text-align: center;
+}
+
+.slider__img-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+    flex: 0.65;
+}
+
+.slider__img {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 16px;
+
+    @media screen and (min-width: 768px) {
+        border-radius: 24px;
+    }
+}
+
+.slider__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    width: 80%;
+    padding: 12px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row-reverse;
+        gap: 48px;
+        width: 80%;
+        padding: 0;
+    }
+}
